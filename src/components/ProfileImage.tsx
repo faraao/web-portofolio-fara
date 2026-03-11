@@ -7,8 +7,8 @@ export const ProfileImage = () => (
     className="w-full h-full object-cover transition-all duration-700"
     referrerPolicy="no-referrer"
     onError={(e) => {
-      // Fallback to picsum if attachment fails
-      (e.target as HTMLImageElement).src = "https://picsum.photos/seed/fariida/800/1000";
+      e.currentTarget.onerror = null; // Prevent infinite loop if fallback image also fails
+      e.currentTarget.src = "/images/fara.png";
     }}
   />
-);
+);
